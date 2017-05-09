@@ -1,0 +1,26 @@
+{
+  "name": "ng2-toggle-it",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnnaAmidani/ng2-toggle-it"
+  },
+  "author": {
+    "name": "Anna Amidani",
+    "email": "an5tash@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnnaAmidani/ng2-toggle-it/issues"
+  },
+  "module": "ng2-toggle-it.js",
+  "typings": "ng2-toggle-it.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

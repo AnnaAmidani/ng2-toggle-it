@@ -1,12 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToggleItComponent } from './toggle.it.component';
+import { ToggleItComponent } from './dashboard/toggle.it.component';
 import { ToggleItDirective } from './toggle.it.directive';
-import { ToggleItService } from './toggle.it.service';
+import { ToggleItService, TOGGLE_SERVICE_PROVIDER } from './toggle.it.service';
 
-export * from './toggle.it.component';
+export * from './dashboard/toggle.it.component';
 export * from './toggle.it.directive';
 export * from './toggle.it.service';
+
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ export * from './toggle.it.service';
   exports: [
     ToggleItComponent,
     ToggleItDirective
-  ]
+  ],
+  providers: [TOGGLE_SERVICE_PROVIDER]
 })
 export class ToggleItModule {
   static forRoot(): ModuleWithProviders {

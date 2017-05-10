@@ -1,10 +1,10 @@
-import { Directive, Input, OnInit, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 //Structural Directives, see http://a2.hubwiz.com/docs/ts/latest/guide/structural-directives.html
-@Directive({ 
-  selector: '[toggleIt]' 
+@Directive({
+  selector: '[toggleIt]'
 })
-export class ToggleItDirective implements OnInit, OnDestroy {
+export class ToggleItDirective {
 
   constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) { }
 
@@ -14,14 +14,6 @@ export class ToggleItDirective implements OnInit, OnDestroy {
     } else {
       this.viewContainer.clear();
     }
-  }  
-
-  public ngOnInit() {
-    console.log('Directive initialised successfully!');
-  }
-
-  public ngOnDestroy() {
-    console.log('Directive destroyed successfully!');
   }
 
 }

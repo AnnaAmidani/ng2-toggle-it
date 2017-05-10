@@ -1,6 +1,7 @@
 export class Feature {
 
     key: string;
+    description: string;
     enabled: boolean;
     creation: Date;
 
@@ -11,6 +12,14 @@ export class Feature {
 
     getKey(): string {
         return this.key;
+    }
+
+    setDescription(description: string): void {
+        this.description = description;
+    }
+
+    getDescription(): string {
+        return this.description;
     }
 
     setEnabled(enabled: boolean): void {

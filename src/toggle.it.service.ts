@@ -4,41 +4,56 @@ import { Feature } from './model/feature';
 
 @Injectable()
 export class ToggleItService {
-    constructor(
-        //@Inject(DOCUMENT) private document: any,
-        //@Inject(WINDOW) private window: any,
-    ) { }
+    //The service must be constructed with a list of features.
+    constructor() { }
 
+    private features: Feature[];
 
-    public getAll(): Feature[] {
-        try {
+    public initFeatures(features: Feature[]) {
+      this.features = features;
+    }
 
-        } catch (error) {
+    public getAllFeatures(): Feature[] {
+      return this.features;
+    }
 
+    public getFeature(key: string): Feature {
+      try {
+        for(let feature of this.features) {
+          if(feature.key===key)
+            return feature;
         }
-        return null;
+        console.warn('no features found with name:' + key);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
-
-    public addItem(feature: Feature) {
-
+    public toggleFeature(key: string, enabled: boolean): any {
+      let success = false;
+      try {
+        for(let feature of this.features) {
+          if(feature.key===key) {
+            feature.enabled = enabled;
+            return success = true;
+          }
+        }
+        console.warn('no features found with name:' + key);
+        return success;
+      } catch (error) {
+        console.log(error);
+      }
     }
 
-    public enableItem(feature: Feature) {
-
+    public addFeature(feature: Feature): any {
+      this.features.push(feature);
     }
 
-    public deleteItem(feature: Feature) {
-
+    public deleteFeature(feature: Feature): any {
+      let index : number = this.features.indexOf(feature, 0);
+      if (index > -1) {
+         this.features.splice(index, 1);
+      }
     }
+
 }
-
-// see https://github.com/angular/angular/issues/13854 in #43
-export function TOGGLE_SERVICE_PROVIDER_FACTORY(parentDispatcher: ToggleItService) {
-    return parentDispatcher || new ToggleItService();
-};
-
-export const TOGGLE_SERVICE_PROVIDER = {
-    provide: ToggleItService,
-    useFactory: TOGGLE_SERVICE_PROVIDER_FACTORY
-};

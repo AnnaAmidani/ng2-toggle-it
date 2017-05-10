@@ -1,3 +1,23 @@
 <h1>Toggle it Admin console</h1>
 <h3>Here you can define and manage the features to be activated or deactivated</h3>
-<div>Here you can define and manage the features to be activated or deactivated</div>
+
+<div>Your list of features:</div>
+
+  <table>
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Created on</th>
+        <th>Active</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let feature of features">
+          <td>{{feature.key}}</td>
+          <td>{{feature.description}}</td>
+          <td>{{feature.creation}}</td>
+          <td>{{feature.enabled}}</td>
+          <td><button>Change!</button></td>
+        </tr>
+    </tbody>
+  </table>

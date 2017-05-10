@@ -1,4 +1,5 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { ToggleItService } from './toggle.it.service';
 
 //Structural Directives, see http://a2.hubwiz.com/docs/ts/latest/guide/structural-directives.html
 @Directive({
@@ -6,10 +7,14 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 })
 export class ToggleItDirective {
 
-  constructor(private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) { }
+  constructor(
+    private toggleItService: ToggleItService,
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef
+  ){ }
 
-  @Input() set toggleIt(shouldAddFeature: boolean) {
-    if (shouldAddFeature) {
+  @Input() set toggleIt(addFeature: boolean) {
+    if (addFeature) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();

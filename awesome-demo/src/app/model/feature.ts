@@ -1,9 +1,16 @@
 export class Feature {
 
     key: string;
-    description: string;
     enabled: boolean;
+    description: string;
     creation: Date;
+
+    constructor( key: string, enabled: boolean, description: string, creation: Date ) {
+      this.key = key;
+      this.enabled = enabled;
+      this.description = description;
+      this.creation = creation;
+    }
 
 
     setKey(key: string): void {

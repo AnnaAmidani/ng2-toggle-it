@@ -24,7 +24,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Import your library
 import { ToggleItModule } from 'ng2-toggle-it';
 
 @NgModule({
@@ -33,9 +32,7 @@ import { ToggleItModule } from 'ng2-toggle-it';
   ],
   imports: [
     BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
+    ToggleItModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -45,11 +42,33 @@ export class AppModule { }
 
 Once your library is imported, you can use its components, directives and pipes in your Angular application:
 
+1) map the ToggleItComponent under the route you prefer (if you are using Route), for loading/securing the admin dashboard as you like.
+ie.
+
+```typescript
+RouterModule.forRoot([
+      { path: '', component: AppComponent  },
+      { path: 'login', component: LoginComponent },
+      { path: 'toggle-dashboard', component: ToggleItComponent },
+      { path: '**', redirectTo: '', pathMatch: 'full' }
+    ]),
+
+```
+
 ```xml
 <!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
+<pre>
+  <div>
+    <h1>use directive as follows:</h1>
+    <div *toggleIt="features.featureName.enabled">
+      <div>UI block that must be created when the toggling is enabled on the feature</div>
+    </div>
+    <div *toggleIt="!features.featureName.enabled">
+      <div>UI block that must be created when the toggling is disabled on the feature</div>
+    </div>
+  </div>
+</pre>
+
 <toggle-it-component></toggle-it-component>
 ```
 

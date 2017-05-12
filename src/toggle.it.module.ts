@@ -1,10 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToggleItComponent } from './dashboard/toggle.it.component';
 import { ToggleItDirective } from './toggle.it.directive';
 import { ToggleItService } from './toggle.it.service';
 
-export * from './dashboard/toggle.it.component';
 export * from './toggle.it.directive';
 export * from './toggle.it.service';
 
@@ -14,11 +12,9 @@ export * from './toggle.it.service';
     CommonModule
   ],
   declarations: [
-    ToggleItComponent,
     ToggleItDirective
   ],
   exports: [
-    ToggleItComponent,
     ToggleItDirective
   ]
 })

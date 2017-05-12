@@ -1,23 +1,37 @@
-<h1>Toggle it Admin console</h1>
-<h3>Here you can define and manage the features to be activated or deactivated</h3>
 
-<div>Your list of features:</div>
+  <div class="toggle">
+    <h1>Toggle it Admin console</h1>
+    <h3>Here you can define and manage the features to be activated or deactivated</h3>
+  </div>
 
-  <table>
+  <table class="toggle">
     <thead>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Created on</th>
-        <th>Active</th>
-        <th>Action</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Created on</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
     </thead>
     <tbody>
-        <tr *ngFor="let feature of features">
-          <td>{{feature.key}}</td>
-          <td>{{feature.description}}</td>
-          <td>{{feature.creation}}</td>
-          <td>{{feature.enabled}}</td>
-          <td><button>Change!</button></td>
-        </tr>
+      <tr *ngFor="let feature of features">
+        <td>{{feature.key}}</td>
+        <td>{{feature.description}}</td>
+        <td>{{feature.creation}}</td>
+        <td class="centerTxt">{{feature.enabled}}</td>
+        <td *ngIf="feature.enabled===false" class="centerTxt"><button value="true">Activate</button></td>
+        <td *ngIf="feature.enabled===true" class="centerTxt"><button value="false">Deactivate</button></td>
+        <td class="centerTxt"><button>Delete</button></td>
+      </tr>
     </tbody>
   </table>
+
+
+  <div class="toggle">
+    <button>Add new feature</button>
+  </div>
+
+
+  <div class="toggle">
+    <a [routerLink]="['/']">Back to Home</a>
+  </div>

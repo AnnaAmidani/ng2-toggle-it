@@ -1,0 +1,29 @@
+.toggle {
+    width: 80%;
+    margin:0 auto;
+}
+
+div.toggle {
+    text-align: center;
+    padding: 2em;
+}
+
+td.centerTxt {
+  text-align: center;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    height: 50px;
+    vertical-align: bottom;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:hover {background-color: #f5f5f5}
+/*tr:nth-child(even) {background-color: #f2f2f2}*/

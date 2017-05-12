@@ -1,6 +1,6 @@
 {
   "name": "ng2-toggle-it",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -64,6 +64,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "http-server": "^0.10.0"
+    "http-server": "^0.10.0",
+    "router": "^1.3.0"
   }
 }

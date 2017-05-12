@@ -1,4 +1,4 @@
-import { Inject, InjectionToken, Injectable, Optional, Renderer, SkipSelf } from '@angular/core';
+import { Injectable, } from '@angular/core';
 import { Feature } from './model/feature';
 
 
@@ -14,8 +14,12 @@ export class ToggleItService {
     this.features = features;
   }
 
-  public getAllFeatures(): Feature[] {
+  public getAll(): Feature[] {
     return this.features;
+  }
+
+  public setAll(features: Feature[]): any {
+    return this.features = features;
   }
 
   public getFeature(key: string): Feature {

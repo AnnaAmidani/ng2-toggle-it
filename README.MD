@@ -10,7 +10,7 @@ $ npm install ng2-toggle-it --save
 
 ## Consuming your library
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
+You can import your library in any Angular application by running:
 
 ```bash
 $ npm install ng2-toggle-it
@@ -21,10 +21,8 @@ and then from your Angular `AppModule`:
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-
-import { ToggleItModule } from 'ng2-toggle-it';
+import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
 
 @NgModule({
   declarations: [
@@ -34,42 +32,45 @@ import { ToggleItModule } from 'ng2-toggle-it';
     BrowserModule,
     ToggleItModule
   ],
-  providers: [],
+  providers: [
+    ToggleItService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
-
-1) map the ToggleItComponent under the route you prefer (if you are using Route), for loading/securing the admin dashboard as you like.
-ie.
+Once your library is imported, you can use its service in your components, ie (see awesome-demo):
 
 ```typescript
-RouterModule.forRoot([
-      { path: '', component: AppComponent  },
-      { path: 'login', component: LoginComponent },
-      { path: 'toggle-dashboard', component: ToggleItComponent },
-      { path: '**', redirectTo: '', pathMatch: 'full' }
-    ]),
+export class DashboardComponent implements OnInit {
+  public features: Feature[];
 
+  constructor(
+    private toggleItService: ToggleItService
+  ) { }
+
+  ngOnInit() {
+    let feature1 = new Feature('Feature-1', true, 'Awesome new look', new Date('2017-01-12'));
+    this.features=[feature1];
+    this.toggleItService.initFeatures(this.features);
+  }
 ```
 
+and its directive:
+
 ```xml
-<!-- You can now use your library component in app.component.html -->
 <pre>
   <div>
     <h1>use directive as follows:</h1>
-    <div *toggleIt="features.featureName.enabled">
+    <div *toggleIt="feature.enabled">
       <div>UI block that must be created when the toggling is enabled on the feature</div>
     </div>
-    <div *toggleIt="!features.featureName.enabled">
+    <div *toggleIt="!feature.enabled">
       <div>UI block that must be created when the toggling is disabled on the feature</div>
     </div>
   </div>
 </pre>
-
-<toggle-it-component></toggle-it-component>
 ```
 
 ## Development

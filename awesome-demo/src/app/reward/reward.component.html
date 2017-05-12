@@ -1,0 +1,30 @@
+
+  <div class="rewards">
+    <h1>Your rewards page!</h1>
+    <h3>Go to <a [routerLink]="['/toggle-dashboard']">Toggle It Dashboard</a> for activating/deactivating features as you like!</h3>
+  </div>
+
+  <div class="component_container">
+
+    <div *toggleIt="true">
+      <div class="component active">Hi, I'm <b>feature-1</b> and I'm active!</div>
+    </div>
+    <div *toggleIt="false">
+      <div class="component inactive">Hi, I'm <b>feature-1</b> and I'm deactivated!</div>
+    </div>
+
+    <div *toggleIt="false">
+      <div class="component active">Hi, I'm <b>feature-2</b> and I'm active!</div>
+    </div>
+    <div *toggleIt="true">
+      <div class="component inactive">Hi, I'm <b>feature-2</b> and I'm deactivated!</div>
+    </div>
+
+    <div *toggleIt="true">
+      <div class="component active">Hi, I'm <b>feature-3</b>, I'm active!</div>
+    </div>
+    <div *toggleIt="false">
+      <div class="component inactive">Hi, I'm <b>feature-3</b> and I'm deactivated!</div>
+    </div>
+
+  </div>

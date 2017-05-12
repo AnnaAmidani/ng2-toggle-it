@@ -1,0 +1,38 @@
+div.rewards {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div.component_container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+div.component {
+  float: left;
+  text-align: center;
+  width: 20%;
+  margin: 3em;
+  padding: 2em;
+}
+
+.active {
+  background-color: #e6ffe6;
+  border-radius: .325em;
+  border: 1px solid #00e600;
+  box-shadow: 0 .1em .1em 0  #008000;
+  -moz-box-shadow: 0 .1em .1em 0 #008000;
+  -webkit-box-shadow: 0 .1em .1em 0 #008000;
+  -o-box-shadow: 0 .1em .1em 0 #008000;
+}
+
+.inactive {
+  background-color: #ffd6cc;
+  border-radius: .325em;
+  border: 1px solid #ff5c33;
+  box-shadow: 0 .1em .1em 0  #cc2900;
+  -moz-box-shadow: 0 .1em .1em 0 #cc2900;
+  -webkit-box-shadow: 0 .1em .1em 0 #cc2900;
+  -o-box-shadow: 0 .1em .1em 0 #cc2900;
+}

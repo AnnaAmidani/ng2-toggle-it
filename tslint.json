@@ -4,10 +4,6 @@
   ],
   "rules": {
     "class-name": true,
-    "comment-format": [
-      true,
-      "check-space"
-    ],
     "curly": true,
     "eofline": true,
     "forin": true,
@@ -18,7 +14,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      200
     ],
     "member-access": false,
     "member-ordering": [
@@ -55,8 +51,7 @@
       true,
       "check-open-brace",
       "check-catch",
-      "check-else",
-      "check-whitespace"
+      "check-else"
     ],
     "quotemark": [
       true,

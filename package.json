@@ -8,7 +8,7 @@
     "docs:build": "compodoc -p tsconfig.json -n ng2-toggle-it -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "lint": "tslint src/**/*.ts",
     "test": "tsc && karma start",
     "start": "http-server -a localhost -p 8000"
   },

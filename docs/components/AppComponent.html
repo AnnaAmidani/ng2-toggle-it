@@ -131,6 +131,9 @@
                                 <li class="link">
                                     <a href="../classes/Feature.html" >Feature</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../classes/Props.html" >Props</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -284,6 +287,9 @@
                                        <li class="link">
                                            <a href="../classes/Feature.html" >Feature</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../classes/Props.html" >Props</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -356,6 +362,12 @@
 
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnInit-interface.html" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -372,6 +384,14 @@
 
 
 
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                    <code>
+                        ToggleItService
+                    </code>
+                </td>
+            </tr>
 
 
             <tr>
@@ -398,13 +418,87 @@
 
 
 
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(toggleItService: <a href="../injectables/ToggleItService.html">ToggleItService</a>)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">awesome-demo/src/app/app.component.ts:13</a></div>
+                            </td>
+                        </tr>
+    
+                </tbody>
+            </table>
+    </section>
 
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> ngOnInit</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngOnInit()</code>
+                        </td>
+                    </tr>
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">awesome-demo/src/app/app.component.ts:20</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
     <section>
         
             <h3 id="inputs">
                 Properties
             </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> features</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>features:     <code><a href="../classes/Feature.html" target="_self" >Feature[]</a></code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">awesome-demo/src/app/app.component.ts:13</a></div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -425,7 +519,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">awesome-demo/src/app/app.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">awesome-demo/src/app/app.component.ts:12</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -435,15 +529,36 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ToggleItService } from &#x27;ng2-toggle-it&#x27;;
+import { Feature } from &#x27;./model/feature&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  styleUrls: [&#x27;./app.component.css&#x27;],
+  providers: [ToggleItService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title &#x3D; &#x27;Feature toggle Demo&#x27;;
+  public features: Feature[];
+
+  constructor(
+    private toggleItService: ToggleItService
+  ) { }
+
+
+  ngOnInit() {
+    if( localStorage.getItem(&#x27;feature-toggle-list&#x27;) &#x3D;&#x3D;&#x3D; undefined) {
+      // load features list from your backend (json, xml,...) and init the list of features using the service.
+      let feature1 &#x3D; new Feature(&#x27;Feature-1&#x27;, true, &#x27;Awesome new look&#x27;, new Date(&#x27;2017-01-12&#x27;));
+      let feature2 &#x3D; new Feature(&#x27;Feature-2&#x27;, false, &#x27;Awesome compliance change&#x27;, new Date(&#x27;2017-04-20&#x27;));
+      let feature3 &#x3D; new Feature(&#x27;Feature-3&#x27;, true, &#x27;Awesome new menu&#x27;, new Date(&#x27;2017-04-20&#x27;));
+      this.features &#x3D; [feature1, feature2, feature3];
+      this.toggleItService.setFeatureList(this.features);
+    }
+  }
+
 }
 </code></pre>
     </div>

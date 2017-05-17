@@ -2,6 +2,46 @@
   <div class="toggle">
     <h1>Toggle it Admin console</h1>
     <h3>Here you can define and manage the features to be activated or deactivated</h3>
+    <p>Enable, disable features, add new ones, delete existing and test the outcome of your changes over the application immediately.
+       <br/>Once you are happy with how your app looks like just click on the 'Save All' button for making the changes persistent!
+    </p>
+  </div>
+
+  <div class="toggle">
+    <button (click)="saveAll()">Save All</button>
+    <button (click)="showAddPanel(true)">Add new Feature</button>
+
+    <div *ngIf="showAdd" class="toggle">
+      <div class="add_feature">
+        <div class="close"><button (click)="showAddPanel(false)">X</button></div>
+        <div class="error">{{errorMsg}}</div>
+        <form [formGroup]="featureForm" (ngSubmit)="addFeature($event)">
+          <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['name'].valid && featureForm.controls['name'].touched}">
+            <div class="m-form-row m-form-row--last m-form-row--full-width">
+              <div><b>Name</b>:</div>
+              <div><input formControlName="name" type="text" /> </div>
+              <div *ngIf="featureForm.controls['name'].hasError('required') && featureForm.controls['name'].touched" class="error">You must set a name for the feature!</div>
+            </div>
+          </div>
+          <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['description'].valid && featureForm.controls['description'].touched}">
+            <div class="m-form-row m-form-row--last m-form-row--full-width">
+              <div><b>Description</b>:</div>
+              <div><textarea formControlName="description" type="text"></textarea></div>
+              <div *ngIf="featureForm.controls['description'].hasError('required') && featureForm.controls['description'].touched" class="error">You must set a short desc for the feature!</div>
+            </div>
+          </div>
+          <div class="form-group ctr">
+            <div class="m-form-row m-form-row--last m-form-row--full-width">
+              <div><b>Enabled</b>: <input formControlName="enabled" type="checkbox" [checked]='false' /> </div>
+            </div>
+          </div>
+          <div class="form-group btn">
+            <button type="submit" [disabled]="!featureForm.valid">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 
   <table class="toggle">
@@ -27,35 +67,5 @@
   </table>
 
   <div class="toggle">
-    <div class="add_feature">
-      <h3>Add new feature</h3>
-      <form [formGroup]="featureForm" (ngSubmit)="addFeature($event)">
-        <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['name'].valid && featureForm.controls['name'].touched}">
-          <div class="m-form-row m-form-row--last m-form-row--full-width">
-            <div><b>Name</b>:</div>
-            <div><input formControlName="name" type="text" /> </div>
-            <div *ngIf="featureForm.controls['name'].hasError('required') && featureForm.controls['name'].touched" class="alert alert-danger">You must set a name for the feature!</div>
-          </div>
-        </div>
-        <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['description'].valid && featureForm.controls['description'].touched}">
-          <div class="m-form-row m-form-row--last m-form-row--full-width">
-            <div><b>Description</b>:</div>
-            <div><textarea formControlName="description" type="text"></textarea></div>
-            <div *ngIf="featureForm.controls['description'].hasError('required') && featureForm.controls['description'].touched" class="alert alert-danger">You must set a short desc for the feature!</div>
-          </div>
-        </div>
-        <div class="form-group ctr">
-          <div class="m-form-row m-form-row--last m-form-row--full-width">
-            <div><b>Enabled</b>: <input formControlName="enabled" type="checkbox" /> </div>
-          </div>
-        </div>
-        <div class="form-group btn">
-          <button type="submit" [disabled]="!featureForm.valid">Add</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="toggle">
-    <a [routerLink]="['/']">Back to Home</a>
+    <a [routerLink]="['/']">Back to Rewards Page!</a>
   </div>

@@ -131,6 +131,9 @@
                                 <li class="link">
                                     <a href="./classes/Feature.html" >Feature</a>
                                 </li>
+                                <li class="link">
+                                    <a href="./classes/Props.html" >Props</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -284,6 +287,9 @@
                                        <li class="link">
                                            <a href="./classes/Feature.html" >Feature</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="./classes/Props.html" >Props</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -323,6 +329,11 @@
                <div class="content readme">
                    <div class="content-data">
 <h1 id="ng2-toggle-it">ng2-toggle-it</h1>
+<p>This library adds feature toggling capability to your angular2 app.<br>You can use a directive and an injectable service that exposes the most common operations, storing the data into the localStorage with the key &#39;feature-toggle-list&#39;.<br>For persisting permanently the list of features a backend service is needed (this part is out of scope for this prj).</p>
+<p>Download the angular-cli project &quot;awesome-demo&quot; for viewing all the functionalities in action:<br>1) Download the full project from my github repo<br>2) Assuming that you already have node, npm and angular-cli installed:</p>
+<pre class="line-numbers"><code class="language-bash">$ cd awesome-demo
+$ npm install
+$ ng serve</code></pre><p>3) Access the application via browser at localhost:4200 and follow the link to nthe toggle dashboard for changing, adding, deleting features.<br>4) See the outcome in the home page</p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install ng2-toggle-it --save</code></pre><h2 id="consuming-your-library">Consuming your library</h2>
@@ -346,8 +357,8 @@ import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }</code></pre><p>Once your library is imported, you can use its service in your components, ie (see awesome-demo):</p>
-<pre class="line-numbers"><code class="language-typescript">export class DashboardComponent implements OnInit {
+export class AppModule { }</code></pre><p>Once your library is imported, you can use its service in your components, ie:</p>
+<pre class="line-numbers"><code class="language-typescript">export class AppComponent implements OnInit {
   public features: Feature[];
 
   constructor(
@@ -355,10 +366,25 @@ export class AppModule { }</code></pre><p>Once your library is imported, you can
   ) { }
 
   ngOnInit() {
+    // load features list from your backend (json, xml,...) and init the list of features using the service.
     let feature1 = new Feature('Feature-1', true, 'Awesome new look', new Date('2017-01-12'));
-    this.features=[feature1];
-    this.toggleItService.initFeatures(this.features);
-  }</code></pre><p>and its directive:</p>
+    let feature2 = new Feature('Feature-2', false, 'Awesome compliance change', new Date('2017-04-20'));
+    this.features = [feature1, feature2];
+    this.toggleItService.setFeatureList(this.features);
+  }</code></pre><p>This is an extract from the Feature model used:</p>
+<pre class="line-numbers"><code class="language-typescript">export class Feature {
+
+    key: string;
+    enabled: boolean;
+    description: string;
+    creation: Date;
+
+    constructor( key: string, enabled: boolean, description: string, creation: Date ) {
+      this.key = key;
+      this.enabled = enabled;
+      this.description = description;
+      this.creation = creation;
+    }</code></pre><p>And this the directive you can use everywhere in your templates:</p>
 <pre class="line-numbers"><code class="language-xml"><pre>
   <div>
     <h1>use directive as follows:</h1>
@@ -369,7 +395,13 @@ export class AppModule { }</code></pre><p>Once your library is imported, you can
       <div>UI block that must be created when the toggling is disabled on the feature</div>
     </div>
   </div>
-</pre></code></pre><h2 id="development">Development</h2>
+</pre></code></pre><p>Here it is the list of services exposed by the ToggleItService:</p>
+<pre class="line-numbers"><code class="language-typescript">public setFeatureList(features: Feature[]);
+public getAll(): Feature[];
+public getFeature(key: string): any;
+public toggleFeature(key: string, enabled: boolean): any;
+public addFeature(feature: Feature): any;
+public deleteFeature(feature: Feature): any;</code></pre><h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To lint all <code>*.ts</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><h2 id="license">License</h2>

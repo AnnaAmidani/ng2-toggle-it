@@ -1,4 +1,18 @@
 # ng2-toggle-it
+This library adds feature toggling capability to your angular2 app.
+You can use a directive and an injectable service that exposes the most common operations, storing the data into the localStorage with the key 'feature-toggle-list'.
+For persisting permanently the list of features a backend service is needed (this part is out of scope for this prj).
+
+Download the angular-cli project "awesome-demo" for viewing all the functionalities in action:
+1) Download the full project from my github repo
+2) Assuming that you already have node, npm and angular-cli installed:
+```bash
+$ cd awesome-demo
+$ npm install
+$ ng serve
+```
+3) Access the application via browser at localhost:4200 and follow the link to nthe toggle dashboard for changing, adding, deleting features.
+4) See the outcome in the home page
 
 ## Installation
 
@@ -40,10 +54,10 @@ import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its service in your components, ie (see awesome-demo):
+Once your library is imported, you can use its service in your components, ie:
 
 ```typescript
-export class DashboardComponent implements OnInit {
+export class AppComponent implements OnInit {
   public features: Feature[];
 
   constructor(
@@ -51,13 +65,34 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // load features list from your backend (json, xml,...) and init the list of features using the service.
     let feature1 = new Feature('Feature-1', true, 'Awesome new look', new Date('2017-01-12'));
-    this.features=[feature1];
-    this.toggleItService.initFeatures(this.features);
+    let feature2 = new Feature('Feature-2', false, 'Awesome compliance change', new Date('2017-04-20'));
+    this.features = [feature1, feature2];
+    this.toggleItService.setFeatureList(this.features);
   }
 ```
 
-and its directive:
+This is an extract from the Feature model used:
+
+```typescript
+export class Feature {
+
+    key: string;
+    enabled: boolean;
+    description: string;
+    creation: Date;
+
+    constructor( key: string, enabled: boolean, description: string, creation: Date ) {
+      this.key = key;
+      this.enabled = enabled;
+      this.description = description;
+      this.creation = creation;
+    }
+
+```
+
+And this the directive you can use everywhere in your templates:
 
 ```xml
 <pre>
@@ -72,6 +107,17 @@ and its directive:
   </div>
 </pre>
 ```
+
+Here it is the list of services exposed by the ToggleItService:
+```typescript
+public setFeatureList(features: Feature[]);
+public getAll(): Feature[];
+public getFeature(key: string): any;
+public toggleFeature(key: string, enabled: boolean): any;
+public addFeature(feature: Feature): any;
+public deleteFeature(feature: Feature): any;
+```
+
 
 ## Development
 

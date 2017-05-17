@@ -1,63 +1,100 @@
 import { Injectable, } from '@angular/core';
 import { Feature } from './model/feature';
+import { Props } from './const/props';
 
 
 @Injectable()
 export class ToggleItService {
 
-  private features: Feature[];
-
   constructor() { }
 
-  public initFeatures(features: Feature[]) {
-    this.features = features;
+
+  private getFromLocalStorage(): Feature[] {
+    return JSON.parse(localStorage.getItem(Props.STORAGE_KEY));
+  }
+
+  private saveInLocalStorage(features: Feature[]) {
+    localStorage.setItem(Props.STORAGE_KEY, JSON.stringify(features));
+  }
+
+
+  public setFeatureList(features: Feature[]) {
+    try {
+      this.saveInLocalStorage(features);
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   public getAll(): Feature[] {
-    return this.features;
-  }
-
-  public setAll(features: Feature[]): any {
-    return this.features = features;
-  }
-
-  public getFeature(key: string): Feature {
     try {
-      for ( let feature of this.features ) {
-        if ( feature.key === key ) {
+      return this.getFromLocalStorage();
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
+  public getFeature(key: string): any {
+    try {
+      for (let feature of this.getFromLocalStorage()) {
+        if (feature.key === key) {
           return feature;
         }
       }
-      console.warn('no features found with name:' + key);
+      return new Error('No features found with name:' + key);
     } catch (error) {
-      console.log(error);
+      console.warn(error);
     }
   }
 
   public toggleFeature(key: string, enabled: boolean): any {
-    let success = false;
     try {
-      for ( let feature of this.features ) {
-        if ( feature.key === key ) {
+      let features = this.getFromLocalStorage();
+      for (let feature of features) {
+        if (feature.key === key) {
           feature.enabled = enabled;
-          return success = true;
+          this.saveInLocalStorage(features);
+          return;
         }
       }
-      console.warn('no features found with name:' + key);
-      return success;
+      return new Error('No features found with name:' + key);
     } catch (error) {
-      console.log(error);
+      console.warn(error);
     }
   }
 
   public addFeature(feature: Feature): any {
-    this.features.push(feature);
+    try {
+      let features = this.getFromLocalStorage();
+      for (let f of features) {
+        if (f.key === feature.key) {
+          return new Error('Duplicated key: feature names must be unique');
+        }
+      }
+      features.push(feature);
+      this.saveInLocalStorage(features);
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   public deleteFeature(feature: Feature): any {
-    let index: number = this.features.indexOf(feature, 0);
-    if ( index > -1 ) {
-       this.features.splice(index, 1);
+    try {
+      let features = this.getFromLocalStorage();
+      for (let f of features) {
+        if (f.key === feature.key) {
+          let index: number = features.indexOf(f, 0);
+          if ( index > -1 ) {
+             features.splice(index, 1);
+             this.saveInLocalStorage(features);
+             return;
+          }
+        }
+      }
+      return new Error('No deletion performed as no features found with name:' + feature.key);
+    } catch (error) {
+      console.warn(error);
     }
   }
+
 }

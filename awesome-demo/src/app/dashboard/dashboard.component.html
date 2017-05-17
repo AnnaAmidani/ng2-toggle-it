@@ -19,18 +19,42 @@
         <td>{{feature.description}}</td>
         <td>{{feature.creation}}</td>
         <td class="centerTxt">{{feature.enabled}}</td>
-        <td *ngIf="feature.enabled===false" class="centerTxt"><button value="true">Activate</button></td>
-        <td *ngIf="feature.enabled===true" class="centerTxt"><button value="false">Deactivate</button></td>
-        <td class="centerTxt"><button>Delete</button></td>
+        <td *ngIf="feature.enabled===false" class="centerTxt"><button (click)="toggleFeature(feature.key, true)" value="true">Activate</button></td>
+        <td *ngIf="feature.enabled===true" class="centerTxt"><button (click)="toggleFeature(feature.key, false)" value="false">Deactivate</button></td>
+        <td class="centerTxt"><button (click)="deleteFeature(feature)">Delete</button></td>
       </tr>
     </tbody>
   </table>
 
-
   <div class="toggle">
-    <button>Add new feature</button>
+    <div class="add_feature">
+      <h3>Add new feature</h3>
+      <form [formGroup]="featureForm" (ngSubmit)="addFeature($event)">
+        <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['name'].valid && featureForm.controls['name'].touched}">
+          <div class="m-form-row m-form-row--last m-form-row--full-width">
+            <div><b>Name</b>:</div>
+            <div><input formControlName="name" type="text" /> </div>
+            <div *ngIf="featureForm.controls['name'].hasError('required') && featureForm.controls['name'].touched" class="alert alert-danger">You must set a name for the feature!</div>
+          </div>
+        </div>
+        <div class="form-group ctr" [ngClass]="{'has-error':!featureForm.controls['description'].valid && featureForm.controls['description'].touched}">
+          <div class="m-form-row m-form-row--last m-form-row--full-width">
+            <div><b>Description</b>:</div>
+            <div><textarea formControlName="description" type="text"></textarea></div>
+            <div *ngIf="featureForm.controls['description'].hasError('required') && featureForm.controls['description'].touched" class="alert alert-danger">You must set a short desc for the feature!</div>
+          </div>
+        </div>
+        <div class="form-group ctr">
+          <div class="m-form-row m-form-row--last m-form-row--full-width">
+            <div><b>Enabled</b>: <input formControlName="enabled" type="checkbox" /> </div>
+          </div>
+        </div>
+        <div class="form-group btn">
+          <button type="submit" [disabled]="!featureForm.valid">Add</button>
+        </div>
+      </form>
+    </div>
   </div>
-
 
   <div class="toggle">
     <a [routerLink]="['/']">Back to Home</a>

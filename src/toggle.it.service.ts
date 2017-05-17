@@ -7,7 +7,6 @@ export class ToggleItService {
 
   private features: Feature[];
 
-  // The service must be constructed with a list of features.
   constructor() { }
 
   public initFeatures(features: Feature[]) {

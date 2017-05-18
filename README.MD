@@ -1,11 +1,18 @@
 # ng2-toggle-it
-This library adds feature toggling capability to your angular2 app.
-You can use a directive and an injectable service that exposes the most common operations, storing the data into localStorage with the key 'feature-toggle-list'.
-For permanently persisting the list of features a backend service is needed (this part is out of scope for this project).
+This library provides ready-to-use classes for adding feature toggling capability to your angular2 application - activating or deactivating
+specific parts of your UI without the need for deploying new application versions.
+You can use a directive in your template and an injectable service all over the application for managing the most common operations,
+like enabling/disabling already defined features, adding new features or removing existing ones.
+The service stores data in the localStorage (with the key 'feature-toggle-list': always contains the most updated version of the whole
+list of features).
+This approach is meant for letting you test immediately the outcome of what changed in your local session, before sending the final list
+to the backend for permanently persisting it - and making it effective. Ideally the communication with the BE should occurr when the app is created (get the whole list and init the service) and everytime the adminstrator of the features is happy with the changes applied (send
+  back the whole list updated).
 
-Download the angular-cli project "awesome-demo" for viewing all the capabilities in action:
 
-1) Download the full project from my github repo
+Find a demo for all the lib capabilities (with a handy toggling admin dashboard) in the angular-cli project "awesome-demo", a FontEnd-Driven feature toggling app example:
+
+1) Download the full project from github
 
 2) Assuming that you already have node, npm and angular-cli installed:
 ```bash
@@ -102,16 +109,16 @@ And this is the directive you can use everywhere in your templates:
   <div>
     <h1>use directive as follows:</h1>
     <div *toggleIt="feature.enabled">
-      <div>UI block that must be created when the toggling is enabled on the feature</div>
+      <foo-component></foo-component>
     </div>
     <div *toggleIt="!feature.enabled">
-      <div>UI block that must be created when the toggling is disabled on the feature</div>
+      <hello-component></hello-component>
     </div>
   </div>
 </pre>
 ```
 
-Here is the list of services exposed by the ToggleItService:
+Here is the list of services exposed:
 ```typescript
 public setFeatureList(features: Feature[]);
 public getAll(): Feature[];

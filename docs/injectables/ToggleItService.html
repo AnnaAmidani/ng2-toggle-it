@@ -63,9 +63,6 @@
                                 id="xs-modules-links"
                             >
                                 <li class="link">
-                                    <a href="../modules/AppModule.html" >AppModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/ToggleItModule.html" >ToggleItModule</a>
                                 </li>
                         </ul>
@@ -156,6 +153,9 @@
             
             
             
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
             
                     <li class="chapter">
                         <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
@@ -218,9 +218,6 @@
                                <ul class="links collapse in"
                                        id="modules-links"
                    >
-                                       <li class="link">
-                                           <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
                                        <li class="link">
                                            <a href="../modules/ToggleItModule.html" >ToggleItModule</a>
                                        </li>
@@ -312,6 +309,9 @@
                    
                    
                    
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
                    
                            <li class="chapter">
                                <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
@@ -483,6 +483,39 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> ciao</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon method fa fa-play circle">
+                                            <span class="fa fa-circle"></span>
+                                        </span>
+                                    <code>ciao(features: <a href="../classes/Feature.html">Feature[]</a>)</code>
+                                </td>
+                            </tr>
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/toggle.it.service.ts:30</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b><span class="modifier">Public</span> getAll</b>
                                 </td>
                             </tr>
@@ -497,7 +530,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/toggle.it.service.ts:29</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/toggle.it.service.ts:38</a></div>
                                     </td>
                                 </tr>
             
@@ -530,7 +563,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/toggle.it.service.ts:37</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/toggle.it.service.ts:46</a></div>
                                     </td>
                                 </tr>
             
@@ -563,7 +596,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/toggle.it.service.ts:50</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/toggle.it.service.ts:59</a></div>
                                     </td>
                                 </tr>
             
@@ -596,7 +629,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/toggle.it.service.ts:66</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/toggle.it.service.ts:75</a></div>
                                     </td>
                                 </tr>
             
@@ -629,7 +662,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/toggle.it.service.ts:81</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/toggle.it.service.ts:90</a></div>
                                     </td>
                                 </tr>
             
@@ -675,6 +708,15 @@ export class ToggleItService {
       console.warn(error);
     }
   }
+
+
+    public ciao(features: Feature[]) {
+      try {
+        this.saveInLocalStorage(features);
+      } catch (error) {
+        console.warn(error);
+      }
+    }
 
   public getAll(): Feature[] {
     try {

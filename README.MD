@@ -1,11 +1,11 @@
 # ng2-toggle-it
 This library provides ready-to-use classes for adding feature toggling capability to your angular2 application - activating or deactivating
 specific parts of your UI without the need for deploying new application versions.
-You can use a directive in your template and an injectable service all over the application for managing the most common operations,
+You can use a directive in your template and an injectable service all over the application for managing the most common operations
 like enabling/disabling already defined features, adding new features or removing existing ones.
-The service stores data in the localStorage (with the key 'feature-toggle-list': always contains the most updated version of the whole
+The service stores data in the localStorage (property 'feature-toggle-list': always contains the most up to date version of the whole
 list of features).
-This approach is meant for letting you test immediately the outcome of what changed in your local session, before sending the final list
+This approach is meant for letting you immediately test the outcome of what changed in your local session, before sending the final list
 to the backend for permanently persisting it - and making it effective. Ideally the communication with the BE should occurr when the app is created (get the whole list and init the service) and everytime the adminstrator of the features is happy with the changes applied (send
   back the whole list updated).
 
@@ -46,7 +46,7 @@ and then from your Angular `AppModule`:
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
+import { ToggleItModule } from 'ng2-toggle-it';
 
 @NgModule({
   declarations: [
@@ -54,10 +54,10 @@ import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
   ],
   imports: [
     BrowserModule,
-    ToggleItModule
+    HttpModule,
+    ToggleItModule.forRoot(),
   ],
   providers: [
-    ToggleItService
   ],
   bootstrap: [AppComponent]
 })

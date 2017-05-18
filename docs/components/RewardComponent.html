@@ -421,7 +421,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:12</a></div>
                             </td>
                         </tr>
     
@@ -449,7 +449,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:18</a></div>
                             </td>
                         </tr>
     
@@ -475,58 +475,18 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> feature1</b>
+                            <b> features</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>feature1:     <code><a href="../classes/Feature.html" target="_self" >Feature</a></code>
+                            <code>features:     <code><a href="../classes/Feature.html" target="_self" >Feature[]</a></code>
     </bcode>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:12</a></div>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> feature2</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>feature2:     <code><a href="../classes/Feature.html" target="_self" >Feature</a></code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:13</a></div>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> feature3</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>feature3:     <code><a href="../classes/Feature.html" target="_self" >Feature</a></code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">awesome-demo/src/app/reward/reward.component.ts:14</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -547,18 +507,14 @@ import { Feature } from &#x27;../model/feature&#x27;;
 })
 export class RewardComponent implements OnInit {
 
-  feature1 : Feature;
-  feature2 : Feature;
-  feature3 : Feature;
+  features: Feature[];
 
   constructor(
     private toggleItService: ToggleItService
   ) { }
 
   ngOnInit() {
-    this.feature1 &#x3D; this.toggleItService.getFeature(&#x27;Feature-1&#x27;);
-    this.feature2 &#x3D; this.toggleItService.getFeature(&#x27;Feature-2&#x27;);
-    this.feature3 &#x3D; this.toggleItService.getFeature(&#x27;Feature-3&#x27;);
+    this.features &#x3D; this.toggleItService.getAll();
   }
 
 }
@@ -574,26 +530,18 @@ export class RewardComponent implements OnInit {
 
   &lt;div class&#x3D;&quot;component_container&quot;&gt;
 
-    &lt;div *toggleIt&#x3D;&quot;feature1.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component active&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-1&lt;/b&gt; and I&#x27;m active!&lt;/div&gt;
+  &lt;div *ngFor&#x3D;&quot;let feature of features&quot;&gt;
+    &lt;div&gt;
+      &lt;div *toggleIt&#x3D;&quot;feature.enabled&quot;&gt;
+        &lt;div class&#x3D;&quot;component active&quot;&gt;Hi, I&#x27;m &lt;b&gt;{{feature.key}}&lt;/b&gt; and I&#x27;m active!&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div *toggleIt&#x3D;&quot;!feature.enabled&quot;&gt;
+        &lt;div class&#x3D;&quot;component inactive&quot;&gt;Hi, I&#x27;m &lt;b&gt;{{feature.key}}&lt;/b&gt; and I&#x27;m deactivated!&lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div *toggleIt&#x3D;&quot;!feature1.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component inactive&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-1&lt;/b&gt; and I&#x27;m deactivated!&lt;/div&gt;
-    &lt;/div&gt;
+  &lt;/div&gt;
 
-    &lt;div *toggleIt&#x3D;&quot;feature2.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component active&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-2&lt;/b&gt; and I&#x27;m active!&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div *toggleIt&#x3D;&quot;!feature2.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component inactive&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-2&lt;/b&gt; and I&#x27;m deactivated!&lt;/div&gt;
-    &lt;/div&gt;
 
-    &lt;div *toggleIt&#x3D;&quot;feature3.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component active&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-3&lt;/b&gt;, I&#x27;m active!&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div *toggleIt&#x3D;&quot;!feature3.enabled&quot;&gt;
-      &lt;div class&#x3D;&quot;component inactive&quot;&gt;Hi, I&#x27;m &lt;b&gt;feature-3&lt;/b&gt; and I&#x27;m deactivated!&lt;/div&gt;
-    &lt;/div&gt;
 
   &lt;/div&gt;
 </code></pre>
@@ -622,7 +570,7 @@ export class RewardComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>  <div class="rewards">    <h1>Your rewards page!</h1>    <h3>Go to <a [routerLink]="[\'/toggle-dashboard\']">Toggle It Dashboard</a> for activating/deactivating features as you like!</h3>  </div>  <div class="component_container">    <div *toggleIt="feature1.enabled">      <div class="component active">Hi, I\'m <b>feature-1</b> and I\'m active!</div>    </div>    <div *toggleIt="!feature1.enabled">      <div class="component inactive">Hi, I\'m <b>feature-1</b> and I\'m deactivated!</div>    </div>    <div *toggleIt="feature2.enabled">      <div class="component active">Hi, I\'m <b>feature-2</b> and I\'m active!</div>    </div>    <div *toggleIt="!feature2.enabled">      <div class="component inactive">Hi, I\'m <b>feature-2</b> and I\'m deactivated!</div>    </div>    <div *toggleIt="feature3.enabled">      <div class="component active">Hi, I\'m <b>feature-3</b>, I\'m active!</div>    </div>    <div *toggleIt="!feature3.enabled">      <div class="component inactive">Hi, I\'m <b>feature-3</b> and I\'m deactivated!</div>    </div>  </div></div>'
+        var COMPONENT_TEMPLATE = '<div>  <div class="rewards">    <h1>Your rewards page!</h1>    <h3>Go to <a [routerLink]="[\'/toggle-dashboard\']">Toggle It Dashboard</a> for activating/deactivating features as you like!</h3>  </div>  <div class="component_container">  <div *ngFor="let feature of features">    <div>      <div *toggleIt="feature.enabled">        <div class="component active">Hi, I\'m <b>{{feature.key}}</b> and I\'m active!</div>      </div>      <div *toggleIt="!feature.enabled">        <div class="component inactive">Hi, I\'m <b>{{feature.key}}</b> and I\'m deactivated!</div>      </div>    </div>  </div>  </div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'RewardComponent', 'selector': 'app-reward'}];
     var DIRECTIVES = [{'name': 'ToggleItDirective', 'selector': '[toggleIt]'}];
     var ACTUAL_COMPONENT = {'name': 'RewardComponent'};

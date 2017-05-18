@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
-import { ToggleItModule, ToggleItService } from 'ng2-toggle-it';
+import { ToggleItModule } from 'ng2-toggle-it';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -22,14 +22,13 @@ import { RewardComponent } from './reward/reward.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    ToggleItModule,
+    ToggleItModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: RewardComponent },
       { path: 'toggle-dashboard', component: DashboardComponent }
-    ]),
+    ])
   ],
   providers: [
-    ToggleItService,
     { provide: APP_BASE_HREF, useValue: environment.baseHref },
   ],
   bootstrap: [AppComponent]

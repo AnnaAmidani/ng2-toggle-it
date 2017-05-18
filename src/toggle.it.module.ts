@@ -6,7 +6,6 @@ import { ToggleItService } from './toggle.it.service';
 export * from './toggle.it.directive';
 export * from './toggle.it.service';
 
-
 @NgModule({
   imports: [
     CommonModule

@@ -329,11 +329,14 @@
                <div class="content readme">
                    <div class="content-data">
 <h1 id="ng2-toggle-it">ng2-toggle-it</h1>
-<p>This library adds feature toggling capability to your angular2 app.<br>You can use a directive and an injectable service that exposes the most common operations, storing the data into the localStorage with the key &#39;feature-toggle-list&#39;.<br>For persisting permanently the list of features a backend service is needed (this part is out of scope for this prj).</p>
-<p>Download the angular-cli project &quot;awesome-demo&quot; for viewing all the functionalities in action:<br>1) Download the full project from my github repo<br>2) Assuming that you already have node, npm and angular-cli installed:</p>
+<p>This library provides ready-to-use classes for adding feature toggling capability to your angular2 application - activating or deactivating<br>specific parts of your UI without the need for deploying new application versions.<br>You can use a directive in your template and an injectable service all over the application for managing the most common operations,<br>like enabling/disabling already defined features, adding new features or removing existing ones.<br>The service stores data in the localStorage (with the key &#39;feature-toggle-list&#39;: always contains the most updated version of the whole<br>list of features).<br>This approach is meant for letting you test immediately the outcome of what changed in your local session, before sending the final list<br>to the backend for permanently persisting it - and making it effective. Ideally the communication with the BE should occurr when the app is created (get the whole list and init the service) and everytime the adminstrator of the features is happy with the changes applied (send<br>  back the whole list updated).</p>
+<p>Find a demo for all the lib capabilities (with a handy toggling admin dashboard) in the angular-cli project &quot;awesome-demo&quot;, a FontEnd-Driven feature toggling app example:</p>
+<p>1) Download the full project from github</p>
+<p>2) Assuming that you already have node, npm and angular-cli installed:</p>
 <pre class="line-numbers"><code class="language-bash">$ cd awesome-demo
 $ npm install
-$ ng serve</code></pre><p>3) Access the application via browser at localhost:4200 and follow the link to nthe toggle dashboard for changing, adding, deleting features.<br>4) See the outcome in the home page</p>
+$ ng serve</code></pre><p>3) Access the application via browser at localhost:4200 and follow the link to the toggle dashboard for changing, adding, deleting features.</p>
+<p>4) See the outcome in the home page</p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install ng2-toggle-it --save</code></pre><h2 id="consuming-your-library">Consuming your library</h2>
@@ -384,18 +387,18 @@ export class AppModule { }</code></pre><p>Once your library is imported, you can
       this.enabled = enabled;
       this.description = description;
       this.creation = creation;
-    }</code></pre><p>And this the directive you can use everywhere in your templates:</p>
+    }</code></pre><p>And this is the directive you can use everywhere in your templates:</p>
 <pre class="line-numbers"><code class="language-xml"><pre>
   <div>
     <h1>use directive as follows:</h1>
     <div *toggleIt="feature.enabled">
-      <div>UI block that must be created when the toggling is enabled on the feature</div>
+      <foo-component></foo-component>
     </div>
     <div *toggleIt="!feature.enabled">
-      <div>UI block that must be created when the toggling is disabled on the feature</div>
+      <hello-component></hello-component>
     </div>
   </div>
-</pre></code></pre><p>Here it is the list of services exposed by the ToggleItService:</p>
+</pre></code></pre><p>Here is the list of services exposed:</p>
 <pre class="line-numbers"><code class="language-typescript">public setFeatureList(features: Feature[]);
 public getAll(): Feature[];
 public getFeature(key: string): any;

@@ -17,7 +17,6 @@ export class ToggleItService {
     localStorage.setItem(Props.STORAGE_KEY, JSON.stringify(features));
   }
 
-
   public setFeatureList(features: Feature[]) {
     try {
       this.saveInLocalStorage(features);

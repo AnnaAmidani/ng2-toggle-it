@@ -22,61 +22,85 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_ToggleItModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="106,-70 106,-268 390,-268 390,-70 106,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="68,-70 68,-268 428,-268 428,-70 68,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_ToggleItModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="250,-78 250,-130 382,-130 382,-78 250,-78"/>
-</g>
-<g id="clust4" class="cluster">
-<title>cluster_ToggleItModule_imports</title>
-<polygon fill="none" stroke="#000000" points="114,-78 114,-130 242,-130 242,-78 114,-78"/>
+<polygon fill="none" stroke="#000000" points="212,-78 212,-130 420,-130 420,-78 212,-78"/>
 </g>
 <g id="clust5" class="cluster">
+<title>cluster_ToggleItModule_imports</title>
+<polygon fill="none" stroke="#000000" points="76,-78 76,-130 204,-130 204,-78 76,-78"/>
+</g>
+<g id="clust6" class="cluster">
 <title>cluster_ToggleItModule_exports</title>
-<polygon fill="none" stroke="#000000" points="180,-208 180,-260 316,-260 316,-208 180,-208"/>
+<polygon fill="none" stroke="#000000" points="152,-208 152,-260 368,-260 368,-208 152,-208"/>
 </g>
 <!-- ToggleItDirective -->
 <g id="node1" class="node">
 <title>ToggleItDirective</title>
-<polygon fill="#ffffb3" stroke="#000000" points="374.2922,-122 257.7078,-122 257.7078,-86 374.2922,-86 374.2922,-122"/>
-<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItDirective</text>
+<polygon fill="#ffffb3" stroke="#000000" points="412.2922,-122 295.7078,-122 295.7078,-86 412.2922,-86 412.2922,-122"/>
+<text text-anchor="middle" x="354" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItDirective</text>
 </g>
 <!-- ToggleItModule -->
-<g id="node2" class="node">
+<g id="node3" class="node">
 <title>ToggleItModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="301.7591,-187 298.7591,-191 277.7591,-191 274.7591,-187 194.2409,-187 194.2409,-151 301.7591,-151 301.7591,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="302.7591,-187 299.7591,-191 278.7591,-191 275.7591,-187 195.2409,-187 195.2409,-151 302.7591,-151 302.7591,-187"/>
+<text text-anchor="middle" x="249" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItModule</text>
 </g>
 <!-- ToggleItDirective&#45;&gt;ToggleItModule -->
 <g id="edge1" class="edge">
 <title>ToggleItDirective&#45;&gt;ToggleItModule</title>
-<path fill="none" stroke="#000000" d="M279.8668,-122.1061C279.8668,-122.1061 279.8668,-140.991 279.8668,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="276.3668,-140.9909 279.8668,-150.991 283.3668,-140.991 276.3668,-140.9909"/>
+<path fill="none" stroke="#000000" d="M299.3668,-122.1061C299.3668,-122.1061 299.3668,-140.991 299.3668,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="295.8668,-140.9909 299.3668,-150.991 302.8668,-140.991 295.8668,-140.9909"/>
+</g>
+<!-- Feature -->
+<g id="node2" class="node">
+<title>Feature</title>
+<polygon fill="#ffffb3" stroke="#000000" points="277.9776,-122 220.0224,-122 220.0224,-86 277.9776,-86 277.9776,-122"/>
+<text text-anchor="middle" x="249" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">Feature</text>
+</g>
+<!-- Feature&#45;&gt;ToggleItModule -->
+<g id="edge2" class="edge">
+<title>Feature&#45;&gt;ToggleItModule</title>
+<path fill="none" stroke="#000000" d="M249,-122.1061C249,-122.1061 249,-140.991 249,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="245.5001,-140.9909 249,-150.991 252.5001,-140.991 245.5001,-140.9909"/>
 </g>
 <!-- ToggleItDirective  -->
-<g id="node4" class="node">
+<g id="node5" class="node">
 <title>ToggleItDirective </title>
-<polygon fill="#fb8072" stroke="#000000" points="307.792,-252 188.208,-252 188.208,-216 307.792,-216 307.792,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItDirective </text>
+<polygon fill="#fb8072" stroke="#000000" points="359.792,-252 240.208,-252 240.208,-216 359.792,-216 359.792,-252"/>
+<text text-anchor="middle" x="300" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">ToggleItDirective </text>
 </g>
 <!-- ToggleItModule&#45;&gt;ToggleItDirective  -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>ToggleItModule&#45;&gt;ToggleItDirective </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.4918,-187.1061C271.4918,-187.1061 271.4918,-205.991 271.4918,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="267.9918,-205.9909 271.4918,-215.991 274.9918,-205.991 267.9918,-205.9909"/>
+</g>
+<!-- Feature  -->
+<g id="node6" class="node">
+<title>Feature </title>
+<polygon fill="#fb8072" stroke="#000000" points="221.9795,-252 160.0205,-252 160.0205,-216 221.9795,-216 221.9795,-252"/>
+<text text-anchor="middle" x="191" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">Feature </text>
+</g>
+<!-- ToggleItModule&#45;&gt;Feature  -->
+<g id="edge5" class="edge">
+<title>ToggleItModule&#45;&gt;Feature </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M208.4297,-187.1061C208.4297,-187.1061 208.4297,-205.991 208.4297,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="204.9298,-205.9909 208.4297,-215.991 211.9298,-205.991 204.9298,-205.9909"/>
 </g>
 <!-- CommonModule -->
-<g id="node3" class="node">
+<g id="node4" class="node">
 <title>CommonModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="233.6681,-122 230.6681,-126 209.6681,-126 206.6681,-122 122.3319,-122 122.3319,-86 233.6681,-86 233.6681,-122"/>
-<text text-anchor="middle" x="178" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="195.6681,-122 192.6681,-126 171.6681,-126 168.6681,-122 84.3319,-122 84.3319,-86 195.6681,-86 195.6681,-122"/>
+<text text-anchor="middle" x="140" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
 </g>
 <!-- CommonModule&#45;&gt;ToggleItModule -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>CommonModule&#45;&gt;ToggleItModule</title>
-<path fill="none" stroke="#000000" d="M213.9772,-122.1061C213.9772,-122.1061 213.9772,-140.991 213.9772,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="210.4773,-140.9909 213.9772,-150.991 217.4773,-140.991 210.4773,-140.9909"/>
+<path fill="none" stroke="#000000" d="M195.7793,-104C202.9881,-104 207.9225,-104 207.9225,-104 207.9225,-104 207.9225,-140.8939 207.9225,-140.8939"/>
+<polygon fill="#000000" stroke="#000000" points="204.4226,-140.8938 207.9225,-150.8939 211.4226,-140.8939 204.4226,-140.8938"/>
 </g>
 </g>
 </svg>

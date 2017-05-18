@@ -9,18 +9,14 @@ import { Feature } from '../model/feature';
 })
 export class RewardComponent implements OnInit {
 
-  feature1 : Feature;
-  feature2 : Feature;
-  feature3 : Feature;
+  features: Feature[];
 
   constructor(
     private toggleItService: ToggleItService
   ) { }
 
   ngOnInit() {
-    this.feature1 = this.toggleItService.getFeature('Feature-1');
-    this.feature2 = this.toggleItService.getFeature('Feature-2');
-    this.feature3 = this.toggleItService.getFeature('Feature-3');
+    this.features = this.toggleItService.getAll();
   }
 
 }

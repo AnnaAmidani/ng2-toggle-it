@@ -1,17 +1,20 @@
 # ng2-toggle-it
 This library adds feature toggling capability to your angular2 app.
-You can use a directive and an injectable service that exposes the most common operations, storing the data into the localStorage with the key 'feature-toggle-list'.
-For persisting permanently the list of features a backend service is needed (this part is out of scope for this prj).
+You can use a directive and an injectable service that exposes the most common operations, storing the data into localStorage with the key 'feature-toggle-list'.
+For permanently persisting the list of features a backend service is needed (this part is out of scope for this project).
 
-Download the angular-cli project "awesome-demo" for viewing all the functionalities in action:
+Download the angular-cli project "awesome-demo" for viewing all the capabilities in action:
+
 1) Download the full project from my github repo
+
 2) Assuming that you already have node, npm and angular-cli installed:
 ```bash
 $ cd awesome-demo
 $ npm install
 $ ng serve
 ```
-3) Access the application via browser at localhost:4200 and follow the link to nthe toggle dashboard for changing, adding, deleting features.
+3) Access the application via browser at localhost:4200 and follow the link to the toggle dashboard for changing, adding, deleting features.
+
 4) See the outcome in the home page
 
 ## Installation
@@ -92,7 +95,7 @@ export class Feature {
 
 ```
 
-And this the directive you can use everywhere in your templates:
+And this is the directive you can use everywhere in your templates:
 
 ```xml
 <pre>
@@ -108,7 +111,7 @@ And this the directive you can use everywhere in your templates:
 </pre>
 ```
 
-Here it is the list of services exposed by the ToggleItService:
+Here is the list of services exposed by the ToggleItService:
 ```typescript
 public setFeatureList(features: Feature[]);
 public getAll(): Feature[];

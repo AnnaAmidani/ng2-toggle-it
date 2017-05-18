@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() {
-    if( localStorage.getItem('feature-toggle-list') === undefined) {
+    if( localStorage.getItem('feature-toggle-list') === null) {
       // load features list from your backend (json, xml,...) and init the list of features using the service.
       let feature1 = new Feature('Feature-1', true, 'Awesome new look', new Date('2017-01-12'));
       let feature2 = new Feature('Feature-2', false, 'Awesome compliance change', new Date('2017-04-20'));

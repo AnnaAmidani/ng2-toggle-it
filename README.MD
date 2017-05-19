@@ -1,16 +1,15 @@
 # ng2-toggle-it
-This library provides ready-to-use classes for adding feature toggling capability to your angular2 application - activating or deactivating
-specific parts of your UI without the need for deploying new application versions.
-You can use a directive in your template and an injectable service all over the application for managing the most common operations
-like enabling/disabling already defined features, adding new features or removing existing ones.
-The service stores data in the localStorage (property 'feature-toggle-list': always contains the most up to date version of the whole
-list of features).
-This approach is meant for letting you immediately test the outcome of what changed in your local session, before sending the final list
-to the backend for permanently persisting it - and making it effective. Ideally the communication with the BE should occurr when the app is created (get the whole list and init the service) and everytime the adminstrator of the features is happy with the changes applied (send
-  back the whole list updated).
 
+This library provides ready-to-use classes for adding **feature toggling capability** to your angular2 application - activating or deactivating specific parts of your UI without the need for deploying new application versions.
 
-Find a demo for all the lib capabilities (with a handy toggling admin dashboard) in the angular-cli project "awesome-demo", a FontEnd-Driven feature toggling app example:
+You can use a **directive** in your template and an **injectable service** all over the application for managing the most common operations like enabling/disabling already defined features, adding new features or removing existing ones.
+The service stores data in the *localStorage* (property *feature-toggle-list*: always contains the most up to date version of the whole list of features).
+
+This approach is meant for letting you immediately test the outcome of what changed in your local session, before sending the final list to the *backend* for permanently persisting it - and making it effective.
+Ideally the communication with the *backend* should occurr when the app is created (getting the whole list and initialising the service) and everytime the adminstrator of the features is happy with the changes applied (send back the whole list updated).
+
+###### Demo
+The angular-cli project **awesome-demo** is a FontEnd-Driven feature toggling example-app, showing the library capabilities (with a handy toggling admin dashboard). 
 
 1) Download the full project from github
 
